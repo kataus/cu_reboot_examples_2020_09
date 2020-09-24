@@ -4,11 +4,19 @@ public class Sample {
     private int valueInt;
     private final String valueStr = "start";
 
-    public int getValue(){
-        return valueInt;
+    public int getValue() {
+        // Простой строчный комментарий
+        return valueInt; // Он же
     }
 
-    public void setValue(int valueInt){
+    /**
+     * JavaDoc комментарий
+     * @param valueInt
+     */
+    public void setValue( int valueInt ) {
+        /*
+        * Комментарий состоящий из блока
+        * */
         this.valueInt = valueInt;
     }
 }
