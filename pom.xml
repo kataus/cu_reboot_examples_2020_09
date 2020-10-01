@@ -21,6 +21,7 @@
         <module>l01-helloworld</module>
         <module>l02-basic</module>
         <module>l03-generics</module>
+        <module>l04-gc</module>
     </modules>
 
     <properties>
