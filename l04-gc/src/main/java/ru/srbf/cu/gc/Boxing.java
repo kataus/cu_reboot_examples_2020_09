@@ -10,7 +10,7 @@ package ru.srbf.cu.gc;
 
 public class Boxing {
   public static void main(String[] args) throws InterruptedException {
-    // calcInteger();
+//     calcInteger();
     calcInt();
     System.out.println("done");
   }
