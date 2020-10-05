@@ -3,6 +3,7 @@ package ru.sbrf.cu.figures;
 public enum FigureNames {
     SQUARE("Квадрат"),
     TRIANGLE("Треугольник"),
+    RIGHT_TRIANGLE("Прямоугольный треугольник"),
     RECTANGLE("Прямоугольник")
     ;
 
