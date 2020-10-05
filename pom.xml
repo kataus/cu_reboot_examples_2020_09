@@ -29,7 +29,7 @@
     <properties>
 
         <!-- region general -->
-        <java.version>13</java.version>
+        <java.version>8</java.version>
         <revision>2020-09-SNAPSHOT</revision>
         <minimal.maven.version>3.6.1</minimal.maven.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

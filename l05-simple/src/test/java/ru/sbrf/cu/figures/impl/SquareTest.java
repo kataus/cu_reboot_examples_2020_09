@@ -1,30 +1,29 @@
 package ru.sbrf.cu.figures.impl;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.sbrf.cu.figures.FigureNames;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SquareTest {
 
     @Test
-    public void testCreate(){
+    public void testCreate() {
         Square square = new Square( 5 );
-        assertEquals( 5, (int)square.getLength() );
+        assertEquals( 5, (int) square.getLength() );
         assertEquals( FigureNames.SQUARE.getName(), square.getName() );
     }
 
     @Test
-    public void testPerimeter(){
+    public void testPerimeter() {
         Square square = new Square( 5 );
-        assertEquals( 20, (int)square.getPerimeter() );
+        assertEquals( 20, (int) square.getPerimeter() );
     }
 
     @Test
-    public void testArea(){
+    public void testArea() {
         Square square = new Square( 5 );
-        assertEquals( 25, (int)square.getArea() );
+        assertEquals( 25, (int) square.getArea() );
     }
 
 }
