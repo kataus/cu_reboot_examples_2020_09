@@ -26,4 +26,9 @@ class SquareTest {
         assertEquals( 25, (int) square.getArea() );
     }
 
+//    @Test
+//    public void createNegative(){
+//        Square square = new Square( -5 );
+//    }
+
 }

@@ -24,6 +24,7 @@
         <module>l04-gc</module>
         <module>l05-simple</module>
         <module>l05-tests</module>
+        <module>l06-sample</module>
     </modules>
 
     <properties>
