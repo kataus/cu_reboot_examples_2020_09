@@ -12,7 +12,7 @@ class MyListTest {
 
     @BeforeEach
     public void beforeAll(){
-        list = null; //TODO подставить свою реализацию
+        list = new MyLinkedList<>(); //TODO подставить свою реализацию
         list.add( 1 );
         list.add( 2 );
         list.add( 10 );
