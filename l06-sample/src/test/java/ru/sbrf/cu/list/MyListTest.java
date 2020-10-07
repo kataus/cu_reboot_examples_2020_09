@@ -6,33 +6,39 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName( "Реализация MyList должна" )
+@DisplayName("Реализация MyList должна")
 class MyListTest {
     MyList<Integer> list;
 
     @BeforeEach
-    public void beforeAll(){
+    public void beforeAll() {
         list = new MyLinkedList<>(); //TODO подставить свою реализацию
         list.add( 1 );
         list.add( 2 );
         list.add( 10 );
     }
 
-    @DisplayName( "добавлять элементы и корректно давать размер" )
+    @DisplayName("добавлять элементы и корректно давать размер")
     @Test
-    public void testAdd(){
+    public void testAdd() {
         assertEquals( 3, list.size() );
     }
 
-    @DisplayName( "находить элемент по индексу" )
+    @DisplayName("находить элемент по индексу")
     @Test
-    public void testGet(){
+    public void testGet() {
         assertEquals( Integer.valueOf( 2 ), list.get( 1 ) );
     }
 
-    @DisplayName( "находить удалять по элемент по совпадению" )
+    @DisplayName("возвращать null если выходим за размер")
     @Test
-    public void testRemoveFirst(){
+    public void testGetWithNull() {
+        assertNull( list.get( 3 ) );
+    }
+
+    @DisplayName("находить удалять по элемент по совпадению")
+    @Test
+    public void testRemoveFirst() {
         list.add( 2 );
         boolean result = list.remove( 2 );
         assertTrue( result );
@@ -40,9 +46,9 @@ class MyListTest {
         assertEquals( 3, list.size() );
     }
 
-    @DisplayName( "возвращать false если удаление по элементу не удалось" )
+    @DisplayName("возвращать false если удаление по элементу не удалось")
     @Test
-    public void testRemoveFalse(){
+    public void testRemoveFalse() {
         boolean result = list.remove( 3 );
         assertFalse( result );
         assertEquals( 3, list.size() );
