@@ -12,7 +12,7 @@ class MyListTest {
 
     @BeforeEach
     public void beforeAll() {
-        list = new MyLinkedList<>(); //TODO подставить свою реализацию
+        list = new MyLinkedList<>();
         list.add( 1 );
         list.add( 2 );
         list.add( 10 );
@@ -52,5 +52,21 @@ class MyListTest {
         boolean result = list.remove( 3 );
         assertFalse( result );
         assertEquals( 3, list.size() );
+    }
+
+    @DisplayName("кооректно сортировать Integer")
+    @Test
+    public void testSort() {
+        list.add( 6 );
+        list.add( 4 );
+        // 1,2,10,6,4
+        list.sort();
+
+        assertEquals( 5, list.size() );
+        assertEquals( Integer.valueOf( 1 ), list.get( 0 ) );
+        assertEquals( Integer.valueOf( 2 ), list.get( 1 ) );
+        assertEquals( Integer.valueOf( 4 ), list.get( 2 ) );
+        assertEquals( Integer.valueOf( 6 ), list.get( 3 ) );
+        assertEquals( Integer.valueOf( 10 ), list.get( 4 ) );
     }
 }
