@@ -25,12 +25,13 @@
         <module>l05-simple</module>
         <module>l05-tests</module>
         <module>l06-sample</module>
+        <module>l07-java8</module>
     </modules>
 
     <properties>
 
         <!-- region general -->
-        <java.version>8</java.version>
+        <java.version>11</java.version>
         <revision>2020-09-SNAPSHOT</revision>
         <minimal.maven.version>3.6.1</minimal.maven.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
