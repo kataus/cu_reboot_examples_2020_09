@@ -26,6 +26,7 @@
         <module>l05-tests</module>
         <module>l06-sample</module>
         <module>l07-java8</module>
+        <module>l08-java8</module>
     </modules>
 
     <properties>
