@@ -7,6 +7,7 @@ import ru.sbrf.cu.j8.service.UserService;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserServiceImpl implements UserService {
     private final UserDao userDao = new UserDaoImpl();
@@ -14,7 +15,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public String getUserName(Integer id) {
         // TODO 1 - optional
-        return null;
+        return userDao.getById(id)
+                .map(u -> u.getFirstName())
+                .orElse("не найдено");
     }
 
     @Override
@@ -26,13 +29,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<String> getActiveUsersName() {
         // TODO 2 - streams
-        return null;
+        return userDao.getAll().stream()
+                .filter(u -> u.isActive())  //.filter(User::isActive)
+                .map(u -> u.getFirstName()) //.map(User::getFirstName)
+                .collect(Collectors.toList());
     }
 
     @Override
     public Collection<String> getActiveNames() {
         // TODO 2 - streams
-        return null;
+        return userDao.getAll().stream()
+                .filter(u -> u.isActive())  //.filter(User::isActive)
+                .map(u -> u.getFirstName()) //.map(User::getFirstName)
+                .collect(Collectors.toSet());
     }
 
     @Override

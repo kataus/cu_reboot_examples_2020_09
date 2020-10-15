@@ -3,12 +3,14 @@ package ru.sbrf.cu.j8.dao.impl;
 import ru.sbrf.cu.j8.dao.UserDao;
 import ru.sbrf.cu.j8.model.User;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class UserDaoImpl implements UserDao {
     private final List<User> users;
+
+    private final Map<Integer, User> userMap;
 
     public UserDaoImpl() {
         this.users = new ArrayList<>();
@@ -19,18 +21,28 @@ public class UserDaoImpl implements UserDao {
         users.add(new User(5, "Александр", "Тестов", false));
         users.add(new User(6, "Ольга", "Иванова", true));
         users.add(new User(7, "Алексей", "Александров", true));
+
+
+        userMap = users.stream()
+                .collect(Collectors.toMap(User::getId, Function.identity()));
     }
 
     @Override
     public List<User> getAll() {
-        //TODO что тут неправильно и опасно?
-        return users;
+        return Collections.unmodifiableList(users);
     }
 
     @Override
     public Optional<User> getById(Integer id) {
         // TODO - 1. сделать корректное создание результата
-        return Optional.empty();
+        User user = null;
+        for (User item : users){
+            if (id == item.getId()){
+                user = item;
+                break;
+            }
+        }
+        return Optional.ofNullable(user);
     }
 
     @Override

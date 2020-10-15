@@ -15,9 +15,12 @@ public interface UserService {
      */
     String getUserName(Integer id);
 
+    //TODO Возвращает имена (firstName) пользователей с active = true
     List<String> getActiveUsersName();
 
+    // TODO Возвращает уникальные имена (fisrtName) пользователей с active = true
     Collection<String> getActiveNames();
+
 
     User insert(User user);
 
