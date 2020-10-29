@@ -30,6 +30,7 @@
         <module>l08-reflections</module>
         <module>l09-annotation</module>
         <module>l10-remoteDebug</module>
+        <module>l10-byteCode</module>
     </modules>
 
     <properties>
