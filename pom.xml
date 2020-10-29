@@ -29,6 +29,7 @@
         <module>l08-java8</module>
         <module>l08-reflections</module>
         <module>l09-annotation</module>
+        <module>l10-remoteDebug</module>
     </modules>
 
     <properties>
