@@ -20,7 +20,7 @@
         </encoder>
     </appender>
 
-    <logger name="ru.itvitality.sbrf.cu.j2003." level="error" additivity="true">
+    <logger name="ru.sbrf.cu.logging" level="error" additivity="true">
         <appender-ref ref="APP_LOG" />
     </logger>
 
