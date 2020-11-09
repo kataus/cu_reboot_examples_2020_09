@@ -32,6 +32,7 @@
         <module>l10-remoteDebug</module>
         <module>l10-byteCode</module>
         <module>l11-serialization</module>
+        <module>l12-solid</module>
     </modules>
 
     <properties>
