@@ -33,6 +33,7 @@
         <module>l10-byteCode</module>
         <module>l11-serialization</module>
         <module>l12-solid</module>
+        <module>l13-jdbc</module>
     </modules>
 
     <properties>
