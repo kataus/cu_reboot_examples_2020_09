@@ -34,6 +34,8 @@
         <module>l11-serialization</module>
         <module>l12-solid</module>
         <module>l13-jdbc</module>
+        <module>l14-hibernate</module>
+        <module>l14-fetch</module>
     </modules>
 
     <properties>
