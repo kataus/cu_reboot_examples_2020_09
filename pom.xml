@@ -36,6 +36,7 @@
         <module>l13-jdbc</module>
         <module>l14-hibernate</module>
         <module>l14-fetch</module>
+        <module>l14-myBatis</module>
     </modules>
 
     <properties>
