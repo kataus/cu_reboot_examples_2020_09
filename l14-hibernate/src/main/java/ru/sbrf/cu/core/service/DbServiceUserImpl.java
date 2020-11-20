@@ -22,10 +22,18 @@ public class DbServiceUserImpl implements DBServiceUser {
     try (SessionManager sessionManager = userDao.getSessionManager()) {
       sessionManager.beginSession();
       try {
+        logger.info("----- before start save: {}", user);
+        if (user.getPhones() != null){
+          user.getPhones().forEach( phone ->  userDao.savePhone( phone ) );
+        }
         long userId = userDao.saveUser(user);
+
+        logger.info("----- after create user: {}", user);
+//        user.setName( "Петя" );
+        logger.info("----- before commit user: {}", user);
         sessionManager.commitSession();
 
-        logger.info("created user: {}", userId);
+        logger.info("----- created user: {}", userId);
         return userId;
       } catch (Exception e) {
         logger.error(e.getMessage(), e);
@@ -35,6 +43,26 @@ public class DbServiceUserImpl implements DBServiceUser {
     }
   }
 
+  @Override
+  public void changeName( long id, String name ){
+    Optional<User> user = Optional.empty();
+    try (SessionManager sessionManager = userDao.getSessionManager()) {
+      sessionManager.beginSession();
+      try {
+
+        user = userDao.findById( id );
+        sessionManager.getCurrentSession().getHibernateSession().detach( user.get() );
+        user.ifPresent( u -> u.setName( name ) );
+
+        sessionManager.commitSession();
+      } catch (Exception e) {
+        logger.error(e.getMessage(), e);
+        sessionManager.rollbackSession();
+        throw new DbServiceException(e);
+      }
+
+    }
+  }
 
   @Override
   public Optional<User> getUser(long id) {

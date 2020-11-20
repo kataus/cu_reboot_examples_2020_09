@@ -1,4 +1,4 @@
-package ru.itvitality.sbrf.cu.l18;
+package ru.sbrf.cu;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

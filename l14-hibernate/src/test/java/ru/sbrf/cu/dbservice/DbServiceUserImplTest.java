@@ -20,7 +20,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
-
 @DisplayName("Сервис для работы с пользователями в рамках БД должен ")
 @ExtendWith(MockitoExtension.class)
 class DbServiceUserImplTest {
@@ -86,6 +85,5 @@ class DbServiceUserImplTest {
     given(userDao.findById(USER_ID)).willReturn(Optional.of(expectedUser));
     Optional<User> mayBeUser = dbServiceUser.getUser(USER_ID);
     assertThat(mayBeUser).isPresent().get().isEqualToComparingFieldByField(expectedUser);
-
   }
 }

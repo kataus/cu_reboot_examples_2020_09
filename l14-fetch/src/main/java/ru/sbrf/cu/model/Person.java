@@ -1,4 +1,4 @@
-package ru.itvitality.sbrf.cu.l18.hibernate.model;
+package ru.sbrf.cu.model;
 
 
 import org.hibernate.annotations.NamedQuery;

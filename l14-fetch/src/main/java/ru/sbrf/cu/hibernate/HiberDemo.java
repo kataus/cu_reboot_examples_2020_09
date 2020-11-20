@@ -1,4 +1,4 @@
-package ru.itvitality.sbrf.cu.l18.hibernate;
+package ru.sbrf.cu.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,8 +10,9 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.itvitality.sbrf.cu.l18.hibernate.model.Person;
-import ru.itvitality.sbrf.cu.l18.hibernate.model.Phone;
+import ru.sbrf.cu.model.Person;
+import ru.sbrf.cu.model.Phone;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -32,13 +33,13 @@ public class HiberDemo {
     public static void main( String[] args ) {
         HiberDemo demo = new HiberDemo();
 
-        demo.entityExample();
+//        demo.entityExample();
 
 //           demo.leakageExample();
 //          demo.fetchExample();
 //           demo.JPQLexample();
 //           demo.deleteFrom();
-        //   demo.nativeExample();
+           demo.nativeExample();
 
         demo.sessionFactory.close();
     }
@@ -113,7 +114,7 @@ public class HiberDemo {
 
             transaction.commit();
 
-            //session.detach(person);
+            session.detach(person);
             deepInIn( person );
 
             Person selected = session.load( Person.class, person.getId() );
@@ -231,9 +232,11 @@ public class HiberDemo {
             Person loadedPerson = session.get( Person.class, personId ); //загружаем в конекст, тут это важно
             logger.info( "loadedPerson:{}", loadedPerson );
 
-            Query query = session.createQuery( "delete from Person u where u.id = ?1" );
-            query.setParameter( 1, personId );
-            query.executeUpdate();
+//            Query query = session.createQuery( "delete from Person u where u.id = ?1" );
+//            query.setParameter( 1, personId );
+//            query.executeUpdate();
+            session.remove( loadedPerson );
+
 
             Person deletedPerson = session.get( Person.class, personId );
             logger.info( "deletedPerson:{}", deletedPerson );

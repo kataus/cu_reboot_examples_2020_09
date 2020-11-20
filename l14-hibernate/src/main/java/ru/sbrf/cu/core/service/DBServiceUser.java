@@ -8,6 +8,8 @@ public interface DBServiceUser {
 
   long saveUser( User user);
 
-  Optional<User> getUser(long id);
+  void changeName( long id, String name );
+
+  Optional<User> getUser( long id);
 
 }

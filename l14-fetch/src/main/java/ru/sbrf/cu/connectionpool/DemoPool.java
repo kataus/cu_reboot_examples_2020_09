@@ -1,4 +1,4 @@
-package ru.itvitality.sbrf.cu.l18.connectionpool;
+package ru.sbrf.cu.connectionpool;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

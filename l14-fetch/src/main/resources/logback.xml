@@ -11,6 +11,13 @@
         <appender-ref ref="STDOUT" />
     </logger>
 
+    <logger name="org.hibernate" level="info" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <logger name="org.hibernate.**.StatisticalLoggingSessionEventListener" level="debug" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
 
     <root level="debug">
         <appender-ref ref="STDOUT" />

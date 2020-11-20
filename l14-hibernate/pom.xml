@@ -4,12 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>ru.sbrf.cu</groupId>
-    <artifactId>java202009</artifactId>
-    <version>${revision}</version>
-  </parent>
 
+    <groupId>ru.sbrf.cu</groupId>
+
+    <version>1.0-SNAPSHOT</version>
 
   <artifactId>l14-hibernate</artifactId>
 
@@ -104,6 +102,18 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire-plugin.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-surefire-provider</artifactId>
+            <version>1.2.0-M1</version>
+          </dependency>
+          <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.3.2</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>

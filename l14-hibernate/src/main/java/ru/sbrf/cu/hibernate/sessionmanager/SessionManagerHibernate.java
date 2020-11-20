@@ -31,6 +31,7 @@ public class SessionManagerHibernate implements SessionManager {
   public void commitSession() {
     checkSessionAndTransaction();
     try {
+
       databaseSession.getTransaction().commit();
       databaseSession.getHibernateSession().close();
     } catch (Exception e) {
@@ -75,6 +76,7 @@ public class SessionManagerHibernate implements SessionManager {
   @Override
   public DatabaseSessionHibernate getCurrentSession() {
     checkSessionAndTransaction();
+
     return databaseSession;
   }
 

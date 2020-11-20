@@ -4,6 +4,7 @@ package ru.sbrf.cu.hibernate.dao;
 import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.sbrf.cu.core.model.Phone;
 import ru.sbrf.cu.core.model.User;
 import ru.sbrf.cu.hibernate.sessionmanager.DatabaseSessionHibernate;
 import ru.sbrf.cu.hibernate.sessionmanager.SessionManagerHibernate;
@@ -46,6 +47,22 @@ public class UserDaoHibernate implements UserDao {
         hibernateSession.persist(user);
       }
       return user.getId();
+    } catch (Exception e) {
+      logger.error(e.getMessage(), e);
+      throw new UserDaoException(e);
+    }
+  }
+
+  @Override
+  public void savePhone( Phone phone ) {
+    DatabaseSessionHibernate currentSession = sessionManager.getCurrentSession();
+    try {
+      Session hibernateSession = currentSession.getHibernateSession();
+      if (phone.getId() > 0) {
+        hibernateSession.merge(phone);
+      } else {
+        hibernateSession.persist(phone);
+      }
     } catch (Exception e) {
       logger.error(e.getMessage(), e);
       throw new UserDaoException(e);
