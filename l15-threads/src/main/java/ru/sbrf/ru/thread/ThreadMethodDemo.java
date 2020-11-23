@@ -17,8 +17,10 @@ public class ThreadMethodDemo {
                     while ( ! stop ) {
                         logger.info( "I am: {} state: {}", Thread.currentThread().getName(), Thread.currentThread().getState() );
                         stop = sleepAndStop();
-                        Thread.onSpinWait(); // "новая фича"
+//                        Thread.onSpinWait(); // "новая фича"
                     }
+                    // Сохраняем всё на диск
+                    logger.info( "I stop" );
                 } );
         thread.setName( "Named-thread" );
         thread.setDaemon( false );
@@ -30,7 +32,7 @@ public class ThreadMethodDemo {
         logger.info( "interrupting" );
         thread.interrupt();
 
-        thread.join();
+//        thread.join();
 
         logger.info( "finished" );
     }
@@ -48,7 +50,7 @@ public class ThreadMethodDemo {
 
     private static void sleep() {
         try {
-            Thread.sleep( TimeUnit.SECONDS.toMillis( 10 ) );
+            Thread.sleep( TimeUnit.SECONDS.toMillis( 5 ) );
         } catch ( InterruptedException e ) {
             Thread.currentThread().interrupt();
         }

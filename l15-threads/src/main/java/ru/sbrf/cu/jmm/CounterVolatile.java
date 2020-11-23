@@ -1,8 +1,8 @@
-package ru.sbrf.ru.jmm;
+package ru.sbrf.cu.jmm;
 
 public class CounterVolatile {
-    private int count = 0;
-//    private volatile int count = 0;
+//    private int count = 0;
+    private volatile int count = 0;
     private static final int LIMIT = 100_000_000;
 
     public static void main( String[] args ) throws InterruptedException {

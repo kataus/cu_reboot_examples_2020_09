@@ -4,13 +4,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 
 public class JoinDemo {
     private static final Logger logger = LoggerFactory.getLogger( JoinDemo.class );
 
     public static void main( String[] args ) throws InterruptedException {
-        freeRun();
-//     orderedRun();
+//        freeRun();
+        Thread.sleep( TimeUnit.SECONDS.toMillis( 15 ) );
+     orderedRun();
     }
 
 
@@ -81,17 +83,17 @@ public class JoinDemo {
         t10.start();
         t10.join();
 
-
         logger.info( "finished" );
     }
 
 
     private static void action( String str ) {
         try {
-            Thread.sleep( ThreadLocalRandom.current().nextInt( 10, 100 ) );
+            Thread.sleep( ThreadLocalRandom.current().nextInt( 2000, 5000 ) );
+//            Thread.sleep( 50 );
         } catch ( InterruptedException e ) {
             Thread.currentThread().interrupt();
         }
-        logger.info( str );
+        logger.info( "Fire {}", str );
     }
 }

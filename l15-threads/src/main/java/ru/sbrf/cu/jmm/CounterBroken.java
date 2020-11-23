@@ -1,4 +1,4 @@
-package ru.sbrf.ru.jmm;
+package ru.sbrf.cu.jmm;
 
 public class CounterBroken {
   private int count = 0;

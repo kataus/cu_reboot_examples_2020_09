@@ -19,6 +19,7 @@ public class DeadlockDemo {
   }
 
   private void demo() {
+
     Thread t1 = new Thread(() -> action(r1, r2));
     t1.setName("t1");
 
@@ -41,11 +42,13 @@ public class DeadlockDemo {
 
 
   private static void action(Resource has, Resource need) {
+    Resource f1 = has.compareTo( need ) > 0 ? has : need;
+    Resource f2 = has.compareTo( need ) > 0 ? need : has;
     logger.info("{} has: {}", Thread.currentThread().getName(), has);
-    synchronized (has) {
+    synchronized (f1) {
       sleep();
       logger.info("{} taking: {}", Thread.currentThread().getName(), need);
-      synchronized (need) {
+      synchronized (f2) {
         logger.info("taken by {}", Thread.currentThread().getName());
       }
     }
@@ -60,8 +63,10 @@ public class DeadlockDemo {
     }
   }
 
-  class Resource {
+  class Resource implements Comparable{
     private final String name;
+
+
 
     Resource(String name) {
       this.name = name;
@@ -73,5 +78,11 @@ public class DeadlockDemo {
           "name='" + name + '\'' +
           '}';
     }
+
+    @Override
+    public int compareTo( Object o ) {
+      return name.compareTo( ( (Resource) o ).name );
+    }
+
   }
 }

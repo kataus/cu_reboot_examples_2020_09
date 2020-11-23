@@ -6,9 +6,9 @@ import org.slf4j.LoggerFactory;
 public class ThreadDemo {
     private static final Logger logger = LoggerFactory.getLogger( ThreadDemo.class );
 
-    public static void main( String[] args ) {
-        case1();
-        //case2();
+    public static void main( String[] args ) throws InterruptedException {
+//        case1();
+        case2();
     }
 
     private static void case1() {
@@ -21,12 +21,14 @@ public class ThreadDemo {
         logger.info( "{}. Main program finished", Thread.currentThread().getName() );
     }
 
-    private static void case2() {
+    private static void case2() throws InterruptedException {
         logger.info( "{}. Main program started", Thread.currentThread().getName() );
 
         CustomThread thread = new CustomThread();
         thread.start();
 
+
+//        Thread.sleep( 10 );
         logger.info( "{}. Main program finished", Thread.currentThread().getName() );
     }
 

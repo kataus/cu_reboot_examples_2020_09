@@ -37,6 +37,7 @@
         <module>l14-fetch</module>
         <module>l14-myBatis</module>
         <module>l15-threads</module>
+        <module>l16-executors</module>
     </modules>
 
     <properties>
