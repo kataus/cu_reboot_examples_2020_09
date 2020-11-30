@@ -38,7 +38,7 @@
         <module>l14-myBatis</module>
         <module>l15-threads</module>
         <module>l16-executors</module>
-        <module>l17-spring-start</module>
+        <module>l17-ioc</module>
     </modules>
 
     <properties>
