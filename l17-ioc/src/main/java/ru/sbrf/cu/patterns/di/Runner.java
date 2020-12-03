@@ -8,7 +8,7 @@ public class Runner {
         Car car = CarFactory.makeCar( new L4Engine(), new RearDriveTransmission() );
         System.out.println( car );
 
-        // TODO сделать новую машину с мотором V6
+        // TODO сделать новую машину с мотором V6 и задний приводом
 
         // TODO сделать новую машину с мотором V6 и полным приводом
     }
