@@ -1,0 +1,1 @@
+insert into persons (id, `name`) values (3, 'vasya');
