@@ -1,0 +1,14 @@
+h1 {
+    color: blueviolet;
+    font-family: Calibri;
+}
+
+p.start{
+    text-align: center;
+    font-style: italic;
+}
+
+p.main{
+    text-align: left;
+    width: 600px;
+}
